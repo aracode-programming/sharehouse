@@ -1,5 +1,4 @@
 @import "tailwindcss";
-
 /* v4でのフォント（テーマ）の設定は、CSS内に直接書きます */
 @theme {
     --font-sans: "source-han-sans-japanese", sans-serif;
