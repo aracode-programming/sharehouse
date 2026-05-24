@@ -1,0 +1,98 @@
+---
+import SectionHeading from '../components/SectionHeading.astro';
+// 見学予約フォームコンポーネント
+---
+
+<section class="form w-full p-6 ">
+    <SectionHeading text='見学予約フォーム' />
+    <div class="image_area">
+        <img src="/images/material/bird.png" alt="クローバーの鳥">
+    </div>
+    <p class="desc">まずはお気軽にご相談ください。<br >見学も随時受け付けております。</p>
+
+    <form action="https://formspree.io/f/xgoqyjna" method="POST" class="space-y-4">
+        
+        <input type="hidden" name="_language" value="ja" />
+        <input type="hidden" name="_subject" value="【見学予約】WEBサイトから新しいお問い合わせがありました" />
+
+        <div>
+            <label class="block">氏名<span class="required">必須</span></label>
+            <input placeholder="例：山 田  太 郎" type="text" name="お名前" required class="w-full px-3 py-2 border border-gray-300 focus:ring-2 focus:ring-blue-500 outline-none" />
+        </div>
+
+        <div>
+            <label class="block">お住まいの市（地域）<span class="required">必須</span></label>
+            <input placeholder="例：福岡県福岡市" name="お住まいの地域" required class="w-full px-3 py-2 border border-gray-300 focus:ring-2 focus:ring-blue-500 outline-none" />
+        </div>
+
+        <div>
+            <label class="block">メールアドレス<span class="required">必須</span></label>
+            <input placeholder="例：info@example.com" type="email" name="email" required class="w-full px-3 py-2 border border-gray-300 focus:ring-2 focus:ring-blue-500 outline-none" />
+        </div>
+
+        <div>
+            <label class="block">電話番号<span class="required">必須</span></label>
+            <input placeholder="例：090-1234-5678" type="tel" name="電話番号" required class="w-full px-3 py-2 border border-gray-300 focus:ring-2 focus:ring-blue-500 outline-none" />
+        </div>
+
+        <div>
+            <label class="block">見学希望日時（第1希望）<span class="required">必須</span></label>
+            <div class="form_calendar">
+                <input type="date" name="第1希望_日付" required class="w-full px-3 py-2 border border-gray-300 outline-none" />
+                <select name="第1希望_時間" required class="w-full px-2 py-2 border border-gray-300 outline-none">
+                    <option value="">時間を選択してください</option>
+                    <option value="9:00">9:00</option>
+                    <option value="10:00">10:00</option>
+                    <option value="11:00">11:00</option>
+                    <option value="13:00">13:00</option>
+                    <option value="14:00">14:00</option>
+                    <option value="15:00">15:00</option>
+                    <option value="16:00">16:00</option>
+                    <option value="17:00">17:00</option>
+                </select>
+            </div>
+        </div>
+
+        <div>
+            <label class="block">見学希望日時（第2希望）<span class="tag">任意</span></label>
+            <div class="form_calendar">
+                <input type="date" name="第2希望_日付" class="w-full px-3 py-2 border border-gray-300 outline-none" />
+                <select name="第2希望_時間" class="w-full px-2 py-2 border border-gray-300 outline-none">
+                    <option value="">時間を選択してください</option>
+                    <option value="9:00">9:00</option>
+                    <option value="10:00">10:00</option>
+                    <option value="11:00">11:00</option>
+                    <option value="13:00">13:00</option>
+                    <option value="14:00">14:00</option>
+                    <option value="15:00">15:00</option>
+                    <option value="16:00">16:00</option>
+                    <option value="17:00">17:00</option>
+                </select>
+            </div>
+        </div>
+
+        <div>
+        <label class="block">お問い合わせ内容</label>
+        <textarea placeholder="ご質問や、その他見学に関するご要望などをご記入ください" name="お問い合わせ内容" rows="3" class="w-full px-3 py-2 border border-gray-300 outline-none"></textarea>
+        </div>
+
+        <div class="privacy_area flex justify-center items-start gap-2">
+            <input 
+                type="checkbox" 
+                id="privacy" 
+                name="プライバシーポリシー同意" 
+                value="同意する"
+                required
+                class="h-4 w-4 border-gray-300 text-blue-600 focus:ring-blue-500 cursor-pointer"
+            />
+            <label for="privacy" class="text-sm text-gray-700 leading-relaxed">
+                <a href="/privacy" class="font-medium">プライバシーポリシー</a>
+                に同意する
+            </label>
+        </div>
+
+        <button type="submit" class="cta_button w-full transition duration-200">
+        同意して送信する
+        </button>
+    </form>
+</section>

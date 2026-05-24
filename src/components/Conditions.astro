@@ -1,0 +1,56 @@
+---
+import SectionHeading from '../components/SectionHeading.astro';
+// 募集要項・条件コンポーネント
+
+const conditions = [
+    {
+        head: "対応エリア",
+        desc: "福岡県古賀市 •福岡県久留米市 •福岡県<br />筑後市 •福岡市東区<br /><span>※現在、古賀の1名様のみ空室あり</span>"
+    },
+    {
+        head: "入居条件",
+        desc: "・要介護1〜5までの要介護認定を受けている方<br />・医療的な看護が重度ではない方(胃瘻等）<br />・お部屋は相部屋、2〜3名でのご利用となります<br />・個室のご用意はありません<br />・相部屋での生活にご理解いただける方<br />・入居に関して保証人がいる方(最低1名）"
+    },
+    {
+        head: "対象者",
+        desc: "高齢者の方、生活保護受給者、退院後の方"
+    },
+    {
+        head: "受け入れ不可",
+        desc: "要介護認定がない方・医療行為がある方"
+    },
+    {
+        head: "費用",
+        desc: "家賃：25,000円<br />初期費用：100,000円<br />管理費・敷金礼金：なし<br />月額費用の目安：月額8〜12万円程度<br />※家賃・食費・介護サービス利用料などを含めます。<br />※介護度・サービス利用状況により金額は変動します。"
+    },
+    {
+        head: "お食事",
+        desc: "月額30,000円で配色注文可能"
+    },
+    {
+        head: "設備・特徴",
+        desc: "風呂トイレ別・Wi-Fiあり・男女別物件"
+    },
+    {
+        head: "入居までの流れ",
+        desc: "お問い合わせ＞ご面談（対面）＞ご契約＞ご入居<br />※最短7日程度で入居可能"
+    }
+];
+---
+
+<section class="conditions w-full bg-white">
+    <SectionHeading text='募集要項・条件' />
+    <div class="tree_illust">
+        <img src="/images/material/tree.png" alt="">
+    </div>
+    <div class="conditions_content">
+        {conditions.map((condition) => (
+            <div class="block">
+                <div class="block_head">
+                    <h3>{condition.head}</h3>
+                </div>
+                <div class="block_content desc" set:html={condition.desc} />
+            </div>
+        ))}
+    </div>
+</section>

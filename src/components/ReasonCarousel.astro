@@ -1,0 +1,93 @@
+---
+// src/components/ReasonCarousel.astro
+import 'swiper/css';
+import 'swiper/css/navigation';
+
+// ご提示いただいた4つのデータ
+const reasons = [
+{
+    id: "01",
+    title: "年金の範囲内で<br>生活が可能",
+    text: "家賃25,000円〜。食費や介護サービス利用料を含めても、月額8〜12万円程度で生活可能です。国民年金受給者の方でも相談しやすい料金設定です。"
+},
+{
+    id: "02",
+    title: "365日24時間<br>サポート対応",
+    text: "看護師・介護福祉士など、医療・介護の有資格者がしっかり対応。毎日の見守りから夜間対応まで安心してお任せください。"
+},
+{
+    id: "03",
+    title: "医療・福祉連携",
+    text: "訪問看護や主治医との連携体制が整っており、万が一の体調変化にも迅速に対応可能です。"
+},
+{
+    id: "04",
+    title: "個人のプライバシー<br>を尊重",
+    text: "お風呂・トイレ別、Wi-Fi完備。施設のような窮屈さはなく、ご自身のペースで自由な生活を送っていただけます。"
+}
+];
+---
+
+<div class="relative w-full">
+    <div class="swiper reason-swiper">
+        <div class="swiper-wrapper">
+        {reasons.map((reason) => (
+            <div class="swiper-slide h-full pb-4">
+            
+                <div class="relative h-full bg-[#fffdf5] border-1 border-[#F5DF22] rounded-3xl p-8 md:p-8 mt-10 shadow-sm">
+                    
+                    <div class="reason_circle absolute -top-10 left-1/2 -translate-x-1/2 w-18 h-18 bg-[#A5C63B] text-white rounded-full flex items-center justify-center text-3xl font-bold ">
+                    {reason.id}
+                    </div>
+                    
+                    <h3 
+                        class="text-center mt-6 mb-4 leading-snug"
+                        set:html={reason.title}
+                    />
+                    
+                    <p>{reason.text}</p>
+                    
+                </div>
+            </div>
+        ))}
+        </div>
+    </div>
+
+    <button class="reason-prev absolute top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 bg-[#F0A22E] text-white rounded-full flex items-center justify-center z-10 hover:bg-amber-600 transition shadow-md">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-5 h-5 md:w-6 md:h-6">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+        </svg>
+    </button>
+
+    <button class="reason-next absolute top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 bg-[#F0A22E] text-white rounded-full flex items-center justify-center z-10 hover:bg-amber-600 transition shadow-md">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-5 h-5 md:w-6 md:h-6">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+        </svg>
+    </button>
+
+    </div>
+
+<script>
+    import Swiper from 'swiper';
+    import { Navigation } from 'swiper/modules';
+
+    // Astroでスクリプトを確実に実行するための関数
+    function initReasonSwiper() {
+        new Swiper('.reason-swiper', {
+        modules: [Navigation],
+        loop: true, // 無限ループ
+        slidesPerView: 1, // スマホでは1枚表示
+        spaceBetween: 20, // スライド間の余白
+        navigation: {
+            nextEl: '.reason-next',
+            prevEl: '.reason-prev',
+        }
+        });
+    }
+
+    // ページ読み込み時に実行
+    initReasonSwiper();
+
+    // AstroのView Transitionsを使用している場合の対策
+    document.addEventListener('astro:page-load', initReasonSwiper);
+</script>

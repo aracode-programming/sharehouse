@@ -1,0 +1,22 @@
+---
+import PhotoSlider from "./PhotoSlider.astro"
+
+
+// 紹介コンポーネント
+---
+
+<section class="introduction w-full bg-white overflow-visible py-6">
+    <PhotoSlider />
+    <div class="banner px-6">
+        <a href="/" class="relative w-full aspect-video inline-block">
+            <div class="text_area">
+                <h3>福岡県古賀市で<br /><span>入居者募集開始!!</span></h3>
+                <div class="callout">すぐに入居可能!</div>
+            </div>
+            <div class="frame absolute top-0 left-0 w-full h-full">
+                <img src="/images/material/frame_4.webp" alt="フレーム">
+            </div>
+            <img src="/images/capture/image3.webp" alt="玄関">
+        </a>
+    </div>
+</section>

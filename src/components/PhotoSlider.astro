@@ -1,0 +1,41 @@
+---
+// src/components/PhotoSlider.astro
+import 'swiper/css';
+import 'swiper/css/autoplay';
+
+// 画像の配列をプロパティとして受け取れるようにすると便利です
+const images = [
+    '/images/capture/image1.webp',
+    '/images/capture/image2.webp',
+    '/images/capture/image3.webp',
+];
+---
+
+<div class="swiper photo-slider w-full mb-8 overflow-visible">
+    <div style="padding-inline: 15%;" class="swiper-wrapper overflow-visible">
+        {images.map((src) => (
+        <div style="width: 70%;" class="swiper-slide aspect-video">
+            <img src={src} alt="施設写真" class="rounded-3xl object-cover" />
+        </div>
+        ))}
+    </div>
+    </div>
+
+    <script>
+    import Swiper from 'swiper';
+    import { Autoplay } from 'swiper/modules';
+
+    new Swiper('.photo-slider', {
+        modules: [Autoplay],
+        loop: true, // 無限ループ
+        slidesPerView: 'auto', // 複数枚を並べる設定
+        spaceBetween: 20, // 画像同士の隙間
+        speed: 3000, // スライドの速さ（大きいほどゆっくり）
+        autoplay: {
+        delay: 0, // 待ち時間なし
+        disableOnInteraction: false, // 触っても止まらない
+        pauseOnMouseEnter: true, // マウスを乗せると一時停止
+        },
+        allowTouchMove: false, // ドラッグ移動を無効にする（オプション）
+    });
+</script>

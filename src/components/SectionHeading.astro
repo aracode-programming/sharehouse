@@ -1,0 +1,17 @@
+---
+// src/components/SectionHeading.astro
+interface Props {
+  text: string;
+}
+
+const { text } = Astro.props;
+---
+
+<div class="sec_head flex flex-col items-center justify-center">
+  <h2 style="font-size: clamp(1.25rem, 5.33vw, 1.5rem); letter-spacing: 2px;" set:html={text}>
+  <img 
+    src="/images/material/heading_border.webp" 
+    alt="見出しの傍線" 
+    class="w-48 md:w-64 h-auto object-contain" 
+  />
+</div>
