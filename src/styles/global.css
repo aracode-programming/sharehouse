@@ -612,6 +612,11 @@ section.form {
     width: 100%;
     font-size: 15px;
     padding: 10px 16px;
+    max-width: 100%;
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    appearance: none;
+    margin: 0;
 }
 .form form .form_calendar {
     width: 100%;
@@ -619,9 +624,18 @@ section.form {
     flex-direction: column;
     gap: 8px;
 }
+.form form input[type="date"]::before {
+    content: attr(data-placeholder);
+    width: 100%;
+}
+.form form input[type="date"]:valid::before {
+    display: none;
+}
 .form form .privacy_area input {
     width: auto;
     margin-top: 3px;
+    -webkit-appearance: auto;
+    appearance: auto;
 }
 .form form .privacy_area label {
     font-size: 14px;
