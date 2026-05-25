@@ -23,6 +23,9 @@
 
     --text-link: #0000FF;
 }
+html {
+    scroll-behavior: smooth;
+}
 body {
     background: #FEFDF8;
     font-family: var(--font-sans);
@@ -92,6 +95,15 @@ button.cta {
     max-width: 600px;
     background: var(--accent);
     color: var(--text-ondark);
+    animation: floating-pulse 1.8s ease-in-out infinite;
+}
+@keyframes floating-pulse {
+    0%, 100% {
+        transform: translateY(0) scale(1);
+    }
+    50% {
+        transform: translateY(-5px) scale(1.05);
+    }
 }
 button.cta::after {
     position: absolute;
@@ -244,15 +256,15 @@ button.cta a {
     justify-content: flex-end;
     gap: 8px;
 }
-.worry .image_area .image_wrap {
-    width: auto;
-    height: 100%;
-}
 .worry .image_area .image_wrap.man {
-    padding-top: 30px;
+    width: clamp(5.313rem, 0.625rem + 20vw, 6.25rem);
+    height: clamp(5.313rem, 0.625rem + 20vw, 6.25rem);
+    margin-top: 30px;
 }
 .worry .image_area .image_wrap.woman {
-    padding-bottom: 30px;
+    width: clamp(4rem, 0.563rem + 14.67vw, 4.688rem);
+    height: clamp(5.313rem, 0.625rem + 20vw, 6.25rem);
+    margin-bottom: 30px;
 }
 
 .solution {
